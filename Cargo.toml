@@ -1,0 +1,21 @@
+[package]
+name = "wodwiki-rs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = { version = "1.0.97", features = ["std", "backtrace"] }
+axum = "0.8.1"
+log = "0.4.26"
+pretty_env_logger = "0.5.0"
+redis = { version = "0.29.1", features = ["tokio-comp"] }
+# sqlx = { version = "0.8.3", features = ["postgres", "runtime-tokio"] }
+tokio = { version = "1.44.1", features = ["full"] }
+tower-http = { version = "0.6.2", features = ["fs"] }
+uuid = { version = "1.16.0", features = ["v4"] }
+
+[profile.release]
+debug = false
+opt-level = 3
+lto = true
+codegen-units = 1
